@@ -22,7 +22,7 @@ jobs:
           xcodePath: '/Applications/Xcode_26.5.app'
       - name: Create Pull Request
         if: steps.resolution.outputs.dependenciesChanged == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: 'update-dependencies'
           delete-branch: true
