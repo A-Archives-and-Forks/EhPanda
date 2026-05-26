@@ -2,14 +2,14 @@ name: Test
 on: [push, workflow_dispatch]
 env:
    SCHEME_NAME: 'EhPanda'
-   DEVELOPER_DIR: /Applications/Xcode_26.0.1.app
+   DEVELOPER_DIR: /Applications/Xcode_26.5.app
 jobs:
   Test:
     runs-on: macos-26
     if: ${{ !contains(github.event.head_commit.message, '[skip test]') }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install iOS 26 Platform
         uses: nick-fields/retry@v3
         with:
