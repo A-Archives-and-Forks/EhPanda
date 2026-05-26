@@ -32,7 +32,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Install iOS 26 Platform
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           retry_on: error
           max_attempts: 10
@@ -139,7 +139,7 @@ jobs:
           [[ ! -z "$RELEASE_DATE" ]] || exit 1
           printf '%s' "$RELEASE_PRIVACY" | jq -e 'type == "object"' >/dev/null
       - name: Release to GitHub
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
          fail_on_unmatched_files: true
          files: ${{ env.IPA_OUTPUT_PATH }}
